@@ -1,15 +1,25 @@
 {
-  "name": "exercicios-js",
+  "name": "exercicios",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
-    "inquirer": "^12.11.1"
-  }
+    "express": "^5.2.1",
+    "inquirer": "^12.11.1",
+    "nodemon": "^3.1.14"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pedro-Luiz0/M-dulos-e-Fun-es.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Pedro-Luiz0/M-dulos-e-Fun-es/issues"
+  },
+  "homepage": "https://github.com/Pedro-Luiz0/M-dulos-e-Fun-es#readme",
+  "description": ""
 }

@@ -71,7 +71,7 @@ function objCasa() {
             "preço" : "1500 R$"  
         },
     ]
-    console.log(objetos)
+    return objetos;
 }
 
 objCasa()

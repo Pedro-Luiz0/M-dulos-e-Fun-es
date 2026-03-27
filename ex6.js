@@ -1,11 +1,11 @@
 function ifElse (){
     let nota = 7.5;
     if (nota < 5) {
-        console.log ("aluno reprovado. ");
+        return "aluno reprovado. ";
     } else if (nota < 7) {
-        console.log ("aluno em recuperação");
+        return "aluno em recuperação";
     } else {
-        console.log (" aluno aprovado! ");
+        return " aluno aprovado! ";
     }
 }
 

@@ -3,7 +3,7 @@ function opeAritmeticas (){
     let quantidade = 4;
     let desconto = 1.50;
     let resultado = (precoMaca * quantidade) - desconto;
-    console.log("O valor final é: R$ " + resultado)
+    return "O valor final é: R$ " + resultado;
 }
 opeAritmeticas()
 export {opeAritmeticas}

@@ -3,7 +3,7 @@ function Vetor () {
 
     frutas [1]= "morango";
 
-    console.log(frutas);
+    return frutas;
 }
 
 Vetor ()

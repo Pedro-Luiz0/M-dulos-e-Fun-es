@@ -2,28 +2,28 @@ function Case () {
     let dia = 3;
     switch(dia){
         case 1:
-            console.log("Domingo ");
+            return "Domingo ";
             break;
         case 2:
-            console.log ("Segunda-Feira");
+            return  "Segunda-Feira";
             break;
         case 3:
-            console.log ("terça-Feira")
+            return  "terça-Feira";
             break;
         case 4:
-            console.log ("Quarta-Feira");
+            return  "Quarta-Feira";
             break;
         case 5:
-            console.log("Quinta-Feira");
+            return "Quinta-Feira";
             break;
         case 6:
-            console.log("sexta-Feira");
+            return "sexta-Feira";
             break;
         case 7:
-            console.log("Sabado");
+            return "Sabado";
             break;
         default:
-            console.log("Dia invalido");
+            return "Dia invalido";
 
     }
 }
