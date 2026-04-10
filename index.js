@@ -11,7 +11,6 @@ import express from 'express'
 
 const app = express()
 
-app.use(express.static('public'));
 
 app.get('/ex1', (req, res) => {
     let ex1 = objCasa()
@@ -23,13 +22,30 @@ app.get('/ex1', (req, res) => {
     res.json(resposta)
 })
 
-app.get('/ex2', (req, res) => {
-    let ex2 =  decVariavel()
-    let resposta = {
-        enunciado: 'Crie uma função chamada decVariavel que declare três variáveis internas - nome, do tipo string, com o valor "Maria" - idade, do tipo número, com o valor 25 - pais, do tipo constante, com o valor "Brasil"',
-        resultado: ex2
-    }
-  res.json(resposta)
+app.get('/ex1/filtro', (req, res) => {
+  const { campo, valor } = req.query
+
+  if (!campo || !valor) {
+      return res.status(400).json({ erro: "Informe campo e valor na query string" })
+  }
+
+  const objetos = objCasa()
+
+  const resultado = objetos.filter(item =>
+      item[campo]?.toLowerCase().includes(valor.toLowerCase())
+  )
+
+  if (resultado.length === 0) {
+      return res.status(404).json({ mensagem: "Nenhum objeto encontrado" })
+  }
+
+  return res.json({ campo, valor, resultado })
+})
+
+app.get('/ex2/:nome/:idade/:pais', (req, res) => {
+    let {nome, idade, pais} = req.params
+    let resposta = decVariavel(nome, idade, pais)
+  res.send(resposta)
 })
 
 app.get('/ex3', (req, res) => {
