@@ -1,8 +1,5 @@
-function opeRelacionais (){
-    let idadeCliente = 20;
-    let idadeMinima = 18;
-    let podeEntrar = idadeCliente >= idadeMinima;
-    return podeEntrar;
+function opeRelacionais(idadeCliente, idadeMinima) {
+    return idadeCliente >= idadeMinima;
 }
-opeRelacionais()
-export {opeRelacionais}
+
+export { opeRelacionais };

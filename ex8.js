@@ -1,9 +1,13 @@
-function laçoRep () {
-    let i = 1
-    while (i<= 10) {
-        return i;
+function laçoRep() {
+    let i = 1;
+    let numeros = [];
+
+    while (i <= 10) {
+        numeros.push(i);
         i++;
     }
+
+    return numeros;
 }
-laçoRep ()
-export {laçoRep}
+
+export { laçoRep };

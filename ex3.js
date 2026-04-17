@@ -1,9 +1,6 @@
-function opeAritmeticas (){
-    let precoMaca = 2.50;
-    let quantidade = 4;
-    let desconto = 1.50;
+function opeAritmeticas(precoMaca, quantidade, desconto) {
     let resultado = (precoMaca * quantidade) - desconto;
-    return "O valor final é: R$ " + resultado;
+    return `O valor final é: R$ ${resultado}`;
 }
-opeAritmeticas()
-export {opeAritmeticas}
+
+export { opeAritmeticas };

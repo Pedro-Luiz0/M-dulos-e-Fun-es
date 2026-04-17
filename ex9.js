@@ -1,10 +1,11 @@
-function Vetor () {
+function Vetor(novoValor) {
     const frutas = ["Maçã", "Banana", "laranja"];
 
-    frutas [1]= "morango";
+    if (novoValor) {
+        frutas[1] = novoValor;
+    }
 
     return frutas;
 }
 
-Vetor ()
-export {Vetor}
+export { Vetor };

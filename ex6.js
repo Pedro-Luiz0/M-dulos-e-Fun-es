@@ -1,13 +1,11 @@
-function ifElse (){
-    let nota = 7.5;
+function ifElse(nota) {
     if (nota < 5) {
-        return "aluno reprovado. ";
+        return "Aluno reprovado";
     } else if (nota < 7) {
-        return "aluno em recuperação";
+        return "Aluno em recuperação";
     } else {
-        return " aluno aprovado! ";
+        return "Aluno aprovado";
     }
 }
 
-ifElse()
-export {ifElse}
+export { ifElse };

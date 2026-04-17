@@ -1,9 +1,9 @@
-function opeLogicas () {
-    let idade = 20;
-    let temCarteira = true ;
+function opeLogicas(idade, temCarteira) {
     let podeDirigir = (idade >= 18 && temCarteira);
-    return "pode dirigir?", podeDirigir; //resultado: true
+
+    return podeDirigir 
+        ? "Pode dirigir" 
+        : "Não pode dirigir";
 }
 
-opeLogicas()
-export {opeLogicas}
+export { opeLogicas };
