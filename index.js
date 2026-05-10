@@ -22,6 +22,8 @@ app.get('/ex1', (req, res) => {
     res.json(resposta)
 })
 
+// EX1 -> QUERYSTRING
+// http://localhost:3000/ex1/filtro?campo=cor&valor=azul
 app.get('/ex1/filtro', (req, res) => {
   const { campo, valor } = req.query
 
@@ -31,9 +33,11 @@ app.get('/ex1/filtro', (req, res) => {
 
   const objetos = objCasa()
 
-  const resultado = objetos.filter(item =>
-      item[campo]?.toLowerCase().includes(valor.toLowerCase())
-  )
+    const resultado = objetos.filter(item =>
+        String(item[campo])
+        .toLowerCase()
+        .includes(valor.toLowerCase())
+    )
 
   if (resultado.length === 0) {
       return res.status(404).json({ mensagem: "Nenhum objeto encontrado" })
@@ -42,16 +46,23 @@ app.get('/ex1/filtro', (req, res) => {
   return res.json({ campo, valor, resultado })
 })
 
+// EX2 -> PARAMS
+// http://localhost:3000/ex2/Pedro/17/Brasil
 app.get('/ex2/:nome/:idade/:pais', (req, res) => {
     let {nome, idade, pais} = req.params
     let resposta = decVariavel(nome, idade, pais)
   res.send(resposta)
 })
 
-app.get('/ex3', (req, res) => {
-    let { precoMaca, quantidade, desconto } = req.query;
 
-    let resultado = opeAritmeticas(
+// EX3 -> QUERY STRING
+// localhost:3000/ex3?precoMaca=10&quantidade=5&desconto=2
+
+app.get('/ex3', (req, res) => {
+
+    const { precoMaca, quantidade, desconto } = req.query;
+
+    const resultado = opeAritmeticas(
         Number(precoMaca),
         Number(quantidade),
         Number(desconto)
@@ -61,10 +72,14 @@ app.get('/ex3', (req, res) => {
 });
 
 
-app.get('/ex4', (req, res) => {
-    let { idadeCliente, idadeMinima } = req.query;
+// EX4 -> PARAMS
+// localhost:3000/ex4/18/16
 
-    let resultado = opeRelacionais(
+app.get('/ex4/:idadeCliente/:idadeMinima', (req, res) => {
+
+    const { idadeCliente, idadeMinima } = req.params;
+
+    const resultado = opeRelacionais(
         Number(idadeCliente),
         Number(idadeMinima)
     );
@@ -73,10 +88,14 @@ app.get('/ex4', (req, res) => {
 });
 
 
-app.get('/ex5', (req, res) => {
-    let { idade, temCarteira } = req.query;
+// EX5 -> QUERY STRING
+// localhost:3000/ex5?idade=18&temCarteira=true
 
-    let resultado = opeLogicas(
+app.get('/ex5', (req, res) => {
+
+    const { idade, temCarteira } = req.query;
+
+    const resultado = opeLogicas(
         Number(idade),
         temCarteira === 'true'
     );
@@ -84,36 +103,65 @@ app.get('/ex5', (req, res) => {
     res.json({ resultado });
 });
 
-app.get('/ex6', (req, res) => {
-    let { nota } = req.query;
 
-    let resultado = ifElse(Number(nota));
+// EX6 -> PARAMS
+// localhost:3000/ex6/8
+
+app.get('/ex6/:nota', (req, res) => {
+
+    const { nota } = req.params;
+
+    const resultado = ifElse(
+        Number(nota)
+    );
 
     res.json({ resultado });
 });
+
+
+// EX7 -> QUERY STRING
+// localhost:3000/ex7?dia=3
 
 app.get('/ex7', (req, res) => {
-    let { dia } = req.query;
 
-    let resultado = Case(Number(dia));
+    const { dia } = req.query;
+
+    const resultado = Case(
+        Number(dia)
+    );
+
+    res.json({ resultado });
+});
+
+
+// EX8 -> PARAMS
+// localhost:3000/ex8/10
+
+app.get('/ex8/:numero', (req, res) => {
+
+    const { numero } = req.params;
+
+    const resultado = laçoRep(
+        Number(numero)
+    );
 
     res.json({ resultado });
 });
 
-app.get('/ex8', (req, res) => {
-    let resultado = laçoRep();
 
-    res.json({ resultado });
-});
+// EX9 QUERY STRING
+// localhost:3000/ex9?novoValor=banana
 
 app.get('/ex9', (req, res) => {
-    let { novoValor } = req.query;
 
-    let resultado = Vetor(novoValor);
+    const { novoValor } = req.query;
+
+    const resultado = Vetor(
+        novoValor
+    );
 
     res.json({ resultado });
 });
-
 
 app.listen(3000, () => {
   console.log('Server is running on http://localhost:3000')
